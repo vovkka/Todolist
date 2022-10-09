@@ -15,11 +15,11 @@ class Task:
 		self.tags = tags
 
 class Menu:
-		def print_menu():
-			print("\n1.Создать задачу")
-			print("2.Посмотреть задачу")
-			print("3.Посмотреть список задач")
-			print("5.Выйти из программы")
+	def print_menu():
+		print("\n1.Создать задачу")
+		print("2.Посмотреть задачу")
+		print("3.Посмотреть список задач")
+		print("5.Выйти из программы")
 
 
 
