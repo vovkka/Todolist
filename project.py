@@ -107,4 +107,5 @@ while operation != Operation.exit:
 	#Просмотр списка задач
 	if operation == Operation.viewListOfTasks:
 		to_do_list.view_list_of_task()
+
 		
