@@ -19,6 +19,7 @@ class Menu:
 		print("\n1.Создать задачу")
 		print("2.Посмотреть задачу")
 		print("3.Посмотреть список задач")
+		print("4.Удалить задачу")
 		print("5.Выйти из программы")
 
 
@@ -35,6 +36,7 @@ class ToDoList:
 			return operation
 				
 		except ValueError:
+
 			print("Такого пункта меню не существует")
 			
 
@@ -50,6 +52,18 @@ class ToDoList:
 
 
 		self.list_of_tasks.append(task)
+	
+	def delete_task(self):
+		try:
+			task_number = int(input("Введите номер задачи: "))
+			if task_number > len(self.list_of_tasks) or task_number < 1:
+				print("\nЗадача с таким номером не обнаружена")
+			else:
+				self.list_of_tasks.pop(task_number - 1)
+				print("\nЗадача №" + str(task_number) + " удалена")
+		except ValueError:
+			print("\nЗадача с таким номером не обнаружена")
+
 		
 		
 
@@ -107,5 +121,7 @@ while operation != Operation.exit:
 	#Просмотр списка задач
 	if operation == Operation.viewListOfTasks:
 		to_do_list.view_list_of_task()
-
-		
+	
+	#Удаление задачи
+	if operation == Operation.deleteTask:
+		to_do_list.delete_task()
