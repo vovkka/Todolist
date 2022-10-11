@@ -64,10 +64,6 @@ class ToDoList:
 		except ValueError:
 			print("\nЗадача с таким номером не обнаружена")
 
-		
-		
-
-
 	def view_task(self):
 
 		try:
