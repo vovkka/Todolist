@@ -28,10 +28,8 @@ class ToDoList:
 	def __init__(self, list_of_tasks):
 		self.list_of_tasks = list_of_tasks
 
-
 	def get_operation(self):
-		try:
-				
+		try:	
 			operation = Operation(int(input("\nДействие: ")))
 			return operation
 				
@@ -39,9 +37,6 @@ class ToDoList:
 
 			print("Такого пункта меню не существует")
 			
-
-
-	
 	def add_task(self):
 		task = Task(input("Введите заголовок задачи: "), input("Введите задачу: "), input("Введите дату дедлайна: "), [])
 
@@ -67,8 +62,8 @@ class ToDoList:
 	def view_task(self):
 
 		try:
-
 			number_of_task = int(input("Введите номер задачи: "))
+			
 			if number_of_task > 0:
 				
 				print("\nЗадача №" + str(number_of_task))
@@ -100,7 +95,6 @@ class ToDoList:
 
 operation = None
 to_do_list = ToDoList([])
-
 
 while operation != Operation.exit:
 	Menu.print_menu()
