@@ -13,6 +13,14 @@ class Task:
 		self.body = body
 		self.date = date
 		self.tags = tags
+	
+	def print_task(self, number_of_task):
+		print("\nЗадача №" + str(number_of_task))
+		print("Заголовок: " + self.heading)
+		print("Задача: " + self.body)
+		print("Дата дедлайна: " + self.date)
+		print("Теги: " + str(self.tags))
+
 
 class Menu:
 	def print_menu():
@@ -67,12 +75,7 @@ class ToDoList:
 			
 			if number_of_task > 0:
 				
-				print("\nЗадача №" + str(number_of_task))
-				number_of_task -= 1
-				print("Заголовок: " + self.list_of_tasks[number_of_task].heading)
-				print("Задача: " + self.list_of_tasks[number_of_task].body)
-				print("Дата дедлайна: " + self.list_of_tasks[number_of_task].date)
-				print("Теги: " + str(self.list_of_tasks[number_of_task].tags))
+				self.list_of_tasks[number_of_task - 1].print_task(number_of_task)
 			
 			else:
 				print("\nЗадача с таким номером не обнаружена.")	
@@ -97,16 +100,12 @@ class ToDoList:
 			tag_to_find = input("Введите тег: ")
 
 
-			for i in range(len(self.list_of_tasks)):
+			for element in self.list_of_tasks:
 			
 
-				if tag_to_find in self.list_of_tasks[i].tags:
+				if tag_to_find in element.tags:
+					element.print_task()
 				
-					print("\nЗадача №" + str(i + 1))
-					print("Заголовок: " + self.list_of_tasks[i].heading)
-					print("Задача: " + self.list_of_tasks[i].body)
-					print("Дата дедлайна: " + self.list_of_tasks[i].date)
-					print("Теги: " + str(self.list_of_tasks[i].tags))
 				else:
 					print("\nЗадачи с таким тегом не обнаружено")
 
