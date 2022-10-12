@@ -5,8 +5,8 @@ class Operation(enum.Enum):
 	viewTask = 2
 	viewListOfTasks = 3
 	deleteTask = 4
-	exit = 5
-
+	findTask = 5
+	exit = 6
 class Task:
 	def __init__(self, heading, body, date, tags):
 		self.heading = heading
@@ -20,7 +20,8 @@ class Menu:
 		print("2.Посмотреть задачу")
 		print("3.Посмотреть список задач")
 		print("4.Удалить задачу")
-		print("5.Выйти из программы")
+		print("5.Найти задачу")
+		print("6.Выйти из программы")
 
 
 
@@ -89,9 +90,25 @@ class ToDoList:
 				print("\nЗадача №" + str(i+1))
 				print("Заголовок: " + self.list_of_tasks[i].heading)
 
+	def find_task(self):
+		if len(self.list_of_tasks) < 1:
+			print("\nУ вас нет ни одной задачи")
+		else:
+			tag_to_find = input("Введите тег: ")
 
 
+			for i in range(len(self.list_of_tasks)):
+			
 
+				if tag_to_find in self.list_of_tasks[i].tags:
+				
+					print("\nЗадача №" + str(i + 1))
+					print("Заголовок: " + self.list_of_tasks[i].heading)
+					print("Задача: " + self.list_of_tasks[i].body)
+					print("Дата дедлайна: " + self.list_of_tasks[i].date)
+					print("Теги: " + str(self.list_of_tasks[i].tags))
+				else:
+					print("\nЗадачи с таким тегом не обнаружено")
 
 operation = None
 to_do_list = ToDoList([])
@@ -115,3 +132,7 @@ while operation != Operation.exit:
 	#Удаление задачи
 	if operation == Operation.deleteTask:
 		to_do_list.delete_task()
+	
+	#Поиск задачи
+	if operation == Operation.findTask:
+		to_do_list.find_task()
