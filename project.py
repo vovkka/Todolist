@@ -14,6 +14,7 @@ class Task:
 		self.date = date
 		self.tags = tags
 	
+	#Выводит информацию о задаче
 	def print_task(self, number_of_task):
 		print("\nЗадача №" + str(number_of_task))
 		print("Заголовок: " + self.heading)
@@ -100,11 +101,11 @@ class ToDoList:
 			tag_to_find = input("Введите тег: ")
 
 
-			for element in self.list_of_tasks:
+			for i in range(len(self.list_of_tasks)):
 			
 
-				if tag_to_find in element.tags:
-					element.print_task()
+				if tag_to_find in self.list_of_tasks[i].tags:
+					self.list_of_tasks[i].print_task(i + 1)
 				
 				else:
 					print("\nЗадачи с таким тегом не обнаружено")
