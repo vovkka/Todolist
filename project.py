@@ -36,7 +36,6 @@ class Task:
 		print("Дата дедлайна: " + self.date)
 		print("Теги: " + str(self.tags))
 
-
 class Menu:
 	def print_menu():
 		print("\n1.Создать задачу")
@@ -49,7 +48,7 @@ class Menu:
 
 
 class ToDoList:
-	def __init__(self, list_of_tasks):
+	def __init__(self, lisst_of_tasks):
 		self.list_of_tasks = list_of_tasks
 
 	def get_operation(self):
