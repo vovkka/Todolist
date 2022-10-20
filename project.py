@@ -1,4 +1,5 @@
 import enum
+import time
 
 class Operation(enum.Enum):
 	addTask = 1
@@ -7,6 +8,7 @@ class Operation(enum.Enum):
 	deleteTask = 4
 	findTask = 5
 	exit = 6
+
 class Task:
 	def __init__(self, heading, body, date, tags):
 		self.heading = heading
@@ -48,14 +50,17 @@ class ToDoList:
 			print("Такого пункта меню не существует")
 			
 	def add_task(self):
-		task = Task(input("Введите заголовок задачи: "), input("Введите задачу: "), input("Введите дату дедлайна: "), [])
-
+		task_heading = input("Введите заголовок задачи: ")
+		task_description = input("Введите задачу: ")
+		task_date = input("Введите дату: ")
+		task_tags = []
 		tag = input("Вводите теги, когда закончите - нажмите Enter: ")
+
 		while tag != "":
-			task.tags.append(tag)
+			task_tags.append(tag)
 			tag = input("Введите тег: ")
-
-
+		
+		task = Task(task_heading, task_description, task_date, task_tags)
 		self.list_of_tasks.append(task)
 	
 	def delete_task(self):
