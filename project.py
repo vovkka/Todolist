@@ -51,18 +51,16 @@ class ToDoList:
 			
 	def add_task(self):
 		task_heading = input("Введите заголовок задачи: ")
-		task_description =input("Введите задачу: ")
+		task_description = input("Введите задачу: ")
 		task_date = input("Введите дату: ")
 		task_tags = []
+		tag = input("Вводите теги, когда закончите - нажмите Enter: ")
+
+		while tag != "":
+			task_tags.append(tag)
+			tag = input("Введите тег: ")
 		
 		task = Task(task_heading, task_description, task_date, task_tags)
-
-		tag = input("Вводите теги, когда закончите - нажмите Enter: ")
-		while tag != "":
-			task.tags.append(tag)
-			tag = input("Введите тег: ")
-
-
 		self.list_of_tasks.append(task)
 	
 	def delete_task(self):
