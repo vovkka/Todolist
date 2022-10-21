@@ -21,7 +21,7 @@ class Task:
 		print("\nЗадача №" + str(number_of_task))
 		print("Заголовок: " + self.heading)
 		print("Задача: " + self.body)
-		print("Дата дедлайна: " + self.date)
+		print("Дата дедлайна: " + time.strftime("%H:%M %d/%m/%Y", self.date))
 		print("Теги: " + str(self.tags))
 
 class Menu:
@@ -44,10 +44,10 @@ class ToDoList:
 		while date == "":
 			date = input("Дата (hh:mm dd/mm/yyyy): ")
 			try:
-				valid_date = time.strptime(date, "%H:%M %d/%m/%Y")
+				date = time.strptime(date, "%H:%M %d/%m/%Y")
 
 			except ValueError:
-				print("Неверная дата")
+				print("Неверная дата, повторите попытку")
 				date = ""
 		
 		return date
