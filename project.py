@@ -22,7 +22,7 @@ class Task:
 		print("Заголовок: " + self.heading)
 		print("Задача: " + self.body)
 		print("Дата дедлайна: " + self.date)
-		print("Теги: " + str(", ".join(self.tags))
+		print("Теги: " + ", ".join(self.tags))
 
 class Menu:
 	def print_menu():
