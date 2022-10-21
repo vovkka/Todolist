@@ -8,6 +8,24 @@ class Operation(enum.Enum):
 	deleteTask = 4
 	findTask = 5
 	exit = 6
+	
+	def __str__(self):
+		title = ""
+		match self:
+			case Operation.addTask:
+				title = "Создать задачу"
+			case Operation.viewTask:
+				title = "Посмотреть задачу"
+			case Operation.viewListOfTasks:
+				title = "Посмотреть список задач"
+			case Operation.deleteTask:
+				title = "Удалить задачу"
+			case Operation.findTask:
+				title = "Найти задачу"
+			case Operation.exit:
+				title = "Выйти из программы"
+				
+		return f"{self.value}.{title}"
 
 class Task:
 	def __init__(self, heading, body, date, tags):
@@ -25,13 +43,12 @@ class Task:
 		print("Теги: " + ", ".join(self.tags))
 
 class Menu:
+	
 	def print_menu():
-		print("\n1.Создать задачу")
-		print("2.Посмотреть задачу")
-		print("3.Посмотреть список задач")
-		print("4.Удалить задачу")
-		print("5.Найти задачу")
-		print("6.Выйти из программы")
+		options = [Operation.addTask, Operation.viewTask, Operation.viewListOfTasks, Operation.deleteTask, Operation.findTask, Operation.exit]
+		print("")
+		for option in options:
+			print(Operation.__str__(option))
 
 
 
