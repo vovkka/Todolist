@@ -21,9 +21,8 @@ class Task:
 		print("\nЗадача №" + str(number_of_task))
 		print("Заголовок: " + self.heading)
 		print("Задача: " + self.body)
-		print("Дата дедлайна: " + self.date)
+		print("Дата дедлайна: " + time.strftime("%H:%M %d/%m/%Y", self.date))
 		print("Теги: " + str(self.tags))
-
 
 class Menu:
 	def print_menu():
@@ -40,6 +39,19 @@ class ToDoList:
 	def __init__(self, list_of_tasks):
 		self.list_of_tasks = list_of_tasks
 
+	def get_date(self):
+		date = ""
+		while date == "":
+			date = input("Дата (hh:mm dd/mm/yyyy): ")
+			try:
+				date = time.strptime(date, "%H:%M %d/%m/%Y")
+
+			except ValueError:
+				print("Неверная дата, повторите попытку")
+				date = ""
+		
+		return date
+
 	def get_operation(self):
 		try:	
 			operation = Operation(int(input("\nДействие: ")))
@@ -52,7 +64,7 @@ class ToDoList:
 	def add_task(self):
 		task_heading = input("Введите заголовок задачи: ")
 		task_description = input("Введите задачу: ")
-		task_date = input("Введите дату: ")
+		task_date = self.get_date()
 		task_tags = []
 		tag = input("Вводите теги, когда закончите - нажмите Enter: ")
 
