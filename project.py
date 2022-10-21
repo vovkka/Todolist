@@ -9,18 +9,6 @@ class Operation(enum.Enum):
 	findTask = 5
 	exit = 6
 
-class Date:
-	def get_date():
-		
-		date = input('Дата (hh:mm dd/mm/yyyy): ')
-		try:
-			valid_date = time.strptime(date, '%H:%M %d/%m/%Y')
-			return date
-		
-		except ValueError:
-			print('Неверная дата')
-			return 'Что-то' #пока непонятно что
-
 class Task:
 	def __init__(self, heading, body, date, tags):
 		self.heading = heading
@@ -48,8 +36,21 @@ class Menu:
 
 
 class ToDoList:
-	def __init__(self, lisst_of_tasks):
+	def __init__(self, list_of_tasks):
 		self.list_of_tasks = list_of_tasks
+
+	def get_date(self):
+		date = ""
+		while date == "":
+			date = input("Дата (hh:mm dd/mm/yyyy): ")
+			try:
+				valid_date = time.strptime(date, "%H:%M %d/%m/%Y")
+
+			except ValueError:
+				print("Неверная дата")
+				date = ""
+		
+		return date
 
 	def get_operation(self):
 		try:	
@@ -63,7 +64,7 @@ class ToDoList:
 	def add_task(self):
 		task_heading = input("Введите заголовок задачи: ")
 		task_description = input("Введите задачу: ")
-		task_date = Date.get_date()
+		task_date = self.get_date()
 		task_tags = []
 		tag = input("Вводите теги, когда закончите - нажмите Enter: ")
 
