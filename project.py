@@ -21,8 +21,8 @@ class Task:
 		print("\nЗадача №" + str(number_of_task))
 		print("Заголовок: " + self.heading)
 		print("Задача: " + self.body)
-		print("Дата дедлайна: " + time.strftime("%H:%M %d/%m/%Y", self.date))
-		print("Теги: " + str(self.tags))
+		print("Дата дедлайна: " + self.date)
+		print("Теги: " + str(", ".join(self.tags))
 
 class Menu:
 	def print_menu():
