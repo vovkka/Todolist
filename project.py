@@ -25,7 +25,7 @@ class Operation(enum.Enum):
 			case Operation.exit:
 				title = "Выйти из программы"
 				
-		return f"{self.value}.{title}"
+		return f"{self.value}. {title}"
 
 class Task:
 	def __init__(self, heading, body, date, tags):
@@ -43,7 +43,6 @@ class Task:
 		print("Теги: " + ", ".join(self.tags))
 
 class Menu:
-	
 	def print_menu():
 		options = [Operation.addTask, Operation.viewTask, Operation.viewListOfTasks, Operation.deleteTask, Operation.findTask, Operation.exit]
 		print("")
@@ -146,9 +145,10 @@ class ToDoList:
 
 operation = None
 to_do_list = ToDoList([])
+my_menu = Menu()
 
 while operation != Operation.exit:
-	Menu.print_menu()
+	my_menu.print_menu()
 	operation = to_do_list.get_operation()
 	
 	#Создание задачи
