@@ -43,6 +43,7 @@ class Task:
 		print("Теги: " + ", ".join(self.tags))
 
 class Menu:
+	
 	def print_menu():
 		options = [Operation.addTask, Operation.viewTask, Operation.viewListOfTasks, Operation.deleteTask, Operation.findTask, Operation.exit]
 		print("")
