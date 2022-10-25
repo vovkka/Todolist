@@ -43,11 +43,11 @@ class Task:
 		print("Теги: " + ", ".join(self.tags))
 
 class Menu:
-		options = [Operation.addTask, Operation.viewTask, Operation.viewListOfTasks, Operation.deleteTask, Operation.findTask, Operation.exit]
-		def print_menu(self):
-			print("")
-			for option in self.options:
-				print(option)
+	options = [Operation.addTask, Operation.viewTask, Operation.viewListOfTasks, Operation.deleteTask, Operation.findTask, Operation.exit]
+	def print_menu(self):
+		print("")
+		for option in self.options:
+			print(option)
 
 class ToDoList:
 	def __init__(self, list_of_tasks):
