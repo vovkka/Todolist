@@ -9,6 +9,24 @@ class Operation(enum.Enum):
 	findTask = 5
 	exit = 6
 
+	def __str__(self):
+		title = ""
+		match self:
+			case Operation.addTask:
+				title = "Создать задачу"
+			case Operation.viewTask:
+				title = "Посмотреть задачу"
+			case Operation.viewListOfTasks:
+				title = "Посмотреть список задач"
+			case Operation.deleteTask:
+				title = "Удалить задачу"
+			case Operation.findTask:
+				title = "Найти задачу"
+			case Operation.exit:
+				title = "Выйти из программы"
+
+		return f"{self.value}. {title}"
+
 class Task:
 	def __init__(self, heading, body, date, tags):
 		self.heading = heading
