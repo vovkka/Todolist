@@ -41,6 +41,12 @@ class Task:
 		print("Задача: " + self.body)
 		print("Дата дедлайна: " + time.strftime("%H:%M %d/%m/%Y", self.date))
 		print("Теги: " + ", ".join(self.tags))
+	
+	def print_short_task(self, number_of_task):
+				print("\nЗадача №" + str(number_of_task))
+				print("Заголовок: " + self.heading)
+				print("Дата дедлайна: " + time.strftime("%H:%M %d/%m/%Y", self.date))
+
 
 class Menu:
 	options = [Operation.addTask, Operation.viewTask, Operation.viewListOfTasks, Operation.deleteTask, Operation.findTask, Operation.exit]
@@ -120,10 +126,8 @@ class ToDoList:
 			print("Задач нет.")
 		
 		else:
-			
-			for i in range(len(self.list_of_tasks)):
-				print("\nЗадача №" + str(i+1))
-				print("Заголовок: " + self.list_of_tasks[i].heading)
+			for task_number in range(len(self.list_of_tasks)):
+				self.list_of_tasks[task_number].print_short_task(task_number + 1)
 
 	def find_task(self):
 		if len(self.list_of_tasks) < 1:
